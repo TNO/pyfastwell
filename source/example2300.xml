@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<doublet>
+<number_of_simulation_runs value="1000"/>
+<aquifer_permeability maxvalue="101" minvalue="99" value="100"/>
+<aquifer_porosity maxvalue="0.25" minvalue="0.1" value="0.21"/>
+<aquifer_net_to_gross maxvalue="1.01" minvalue="0.99" value="1.0"/>
+<aquifer_gross_thickness maxvalue="101" minvalue="99" value="100"/>
+<aquifer_top_at_producer maxvalue="2530.0" minvalue="2070.0" value="2300.0"/>
+<aquifer_top_at_injector maxvalue="2530.0" minvalue="2070.0" value="2300.0"/>
+<aquifer_water_salinity maxvalue="140100" minvalue="139000" value="140000.0"/>
+<aquifer_net_transmissivity maxvalue="0.0" minvalue="0.0" value="0.0"/>
+<aquifer_kh-kv_ratio value="1"/>
+<surface_temperature value="10"/>
+<geothermal_gradient value="0.031"/>
+<mid_aquifer_temperature_producer value="0"/>
+<initial_aquifer_pressure_at_producer value="0"/>
+<initial_aquifer_pressure_at_injector value="0"/>
+<heat_capacity_rock_matrix_at_20_C value="855"/>
+<density_rock_matrix value="2720"/>
+<thermal_conductivity_rock_matrix value="3"/>
+<thermal_diffusivity_rock_matrix value="0.0000012"/>
+<use_Kestin_viscosity_correlation value="0"/>
+<exit_temperature_heat_exchanger value="50"/>
+<distance_wells_at_aquifer_level value="1300"/>
+<pump_system_efficiency value="0.6"/>
+<production_pump_depth value="300"/>
+<pump_pressure_difference value="60"/>
+<cooling_as_fraction_of_initial_dT value="0.1"/>
+<yearly_full_operational_hours value="6000"/>
+<calculation_length_subdivision value="50"/>
+<outer_diameter_producer value="8"/>
+<skin_producer value="0"/>
+<penetration_angle_producer value="0"/>
+<skin_due_to_penetration_angle.p. value="0.0"/>
+<total_skin_producer value="0.0"/>
+<pipe_segment_sections.p. arrayvalue="2666.0"/>
+<pipe_segment_depth.p. arrayvalue="2400"/>
+<pipe_inner_diameter.p. arrayvalue="7.0"/>
+<pipe_roughness.p. arrayvalue="1.38"/>
+<outer_diameter_injector value="8"/>
+<skin_injector value="0"/>
+<penetration_angle_injector value="0"/>
+<skin_due_to_penetration_angle.i. value="0.0"/>
+<total_skin_injector value="0.0"/>
+<pipe_segment_sections.i. arrayvalue="2666"/>
+<pipe_segment_depth.i. arrayvalue="2400"/>
+<pipe_inner_diameter.i. arrayvalue="7.0"/>
+<pipe_roughness.i. arrayvalue="1.38"/>
+</doublet>
