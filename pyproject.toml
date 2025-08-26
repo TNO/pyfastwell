@@ -1,0 +1,80 @@
+[build-system]
+# Pin/set minimum backend versions as you prefer
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# --- REQUIRED for PyPI publishing ---
+name = "pyfastwell"            # must match distribution name
+version = "0.1.1"                              # or use dynamic versioning (see below)
+description = "This project provides tools for fast performance calculations for complex geothermal well architecturses."  # short description
+readme = "README.md"                           # long description on PyPI
+requires-python = ">=3.11"                      # adjust as needed
+license = { file = "LICENSE" }
+authors = [{ name = "Jan-Diederik van Wees", email = "jan_diederik.vanwees@tno.nl" },
+{ name = "Peter Foker", email ="peter.fokker@tno.nl" },]
+# maintainers = [{ name = "Stephan de Hoop", email = "stephan.dehoop@tno.nl" }] 
+
+# --- RECOMMENDED metadata for discovery on PyPI ---
+keywords = ["geothermal", "energy", "npv", "lcoe", "economics", "techno-economics", "well simulation", "analytical element method"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",          
+  "Operating System :: OS Independent",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering",
+]
+
+# --- Runtime dependencies (from your setup.py install_requires) ---
+dependencies = [
+  "numpy",
+  "pandas",
+  "pydantic",
+  "pyyaml",
+  "matplotlib",
+  "scipy",
+  "shapely",
+  "xarray",
+  "pythermonomics",
+  "pywellgeo"
+]
+
+[project.optional-dependencies]
+# from your extras_require
+docs = [
+  "mkdocs",
+  "mkdocstrings[python]",
+  "mkdocs-material",
+  "mike",
+]
+
+tests = [
+  "unittest",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/TNO/pyfastwell"      # fill in
+Repository = "https://github.com/TNO/pyfastwell"        # fill in
+Documentation = "https://tno.github.io/pyfastwell"            # fill in
+#Issues = "https://github.com/your/repo/issues"     # fill in
+
+# --- Setuptools configuration (src-layout) ---
+[tool.setuptools]
+# include-package-data = true                     # enable if you ship package data
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# --- Tooling configs (moved from setup.cfg) ---
+[tool.isort]
+profile = "black"
+line_length = 88
+
+# (Optional) keep formatter in sync
+[tool.black]
+line-length = 88
+target-version = ["py39"]

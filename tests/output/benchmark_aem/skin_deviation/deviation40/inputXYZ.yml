@@ -1,0 +1,40 @@
+format: XYZGENERIC
+reservoir:
+  basic:
+    bottom_reservoir_depth_TVD: 2400
+    top_reservoir_depth_TVD: 2300
+well_trajectories:
+  INJ1:
+    main_wellbore:
+      mindist: 25
+      radius: 0.1
+      xyz:
+      - - 0.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - 0.0
+        - 1150.0
+      - - 608.045018441136
+        - 0.0
+        - 2300.0
+      - - 691.954981558864
+        - 0.0
+        - 2400.0
+  PRD1:
+    main_wellbore:
+      mindist: 25
+      radius: 0.1
+      xyz:
+      - - 0.0
+        - 0.0
+        - 0.0
+      - - 0.0
+        - 0.0
+        - 1150.0
+      - - -608.045018441136
+        - 0.0
+        - 2300.0
+      - - -691.954981558864
+        - 0.0
+        - 2400.0

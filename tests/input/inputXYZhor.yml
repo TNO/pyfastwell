@@ -1,0 +1,20 @@
+format: "XYZGENERIC"
+
+reservoir:
+    basic:
+        top_reservoir_depth_TVD: 2300.0 # m TVD
+        bottom_reservoir_depth_TVD: 2400  # m TVD
+
+
+well_trajectories:
+  INJ1:
+    main_wellbore:
+     xyz: [[800, 500, 2350], [1800,500,2350] ]
+     radius: 0.1
+     mindist: 25
+  PRD1:
+    main_wellbore:
+     xyz: [ [800, -500, 2350], [1800,-500,2350] ]
+     radius: 0.1
+     mindist: 25
+

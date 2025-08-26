@@ -1,0 +1,145 @@
+format: "DETAILEDTNO"
+
+reservoir:
+    basic:
+        top_reservoir_depth_TVD: 3125 # m TVD
+        bottom_reservoir_depth_TVD: 3325  # m TVD
+
+
+well_trajectories:
+    INJ1:
+        main_wellbore:     
+          name: well1
+          wellhead:
+              x: 0
+              y: 0
+          BUR: 6.0 # deg/30m
+          radius: 0.1
+          subs:
+            sub1:
+                x: 271 # for x,y omission will take old x,y
+                y: -410 # (-TVD)  to be reac
+                z: -3425
+                azim: 166.7
+                dip: -7.8
+            sub2:
+               L: 2194 # for x,y omission will take old x,y
+        branch1:
+          startsub: sub1 # reference to a node in main_wellbore
+          subs:
+            subl1:
+              x: 404 # for x,y omission will take old x,y
+              y: -687 # (-TVD)  to be reac
+              z: -3384
+              samedir: True
+            subl2:
+              L: 1894 # for x,y omission will take old x,y
+        branch2:
+          startsub: sub1 # reference to a node in main_wellbore
+          subs:
+            subl1:
+              x: 277 # for x,y omission will take old x,y
+              y: -717 # (-TVD)  to be reac
+              z: -3383
+              samedir: True
+            subl2:
+              L: 1894 # for x,y omission will take old x,y
+        branch3:
+          startsub: sub1 # reference to a node in main_wellbore
+          subs:
+            subl1:
+              x: 93 # for x,y omission will take old x,y
+              y: -1069 # (-TVD)  to be reac
+              z: -3343
+              samedir: True
+            subl2:
+              L: 1394 # for x,y omission will take old x,y
+        branch4:
+          startsub: sub1 # reference to a node in main_wellbore
+          subs:
+            subl1:
+                x: 726 # for x,y omission will take old x,y
+                y: -919 # (-TVD)  to be reac
+                z: -3342
+                samedir: True
+            subl2:
+                L: 1394 # for x,y omission will take old x,y
+
+
+    PRD1:
+        main_wellbore:
+          name: well2
+          wellhead:
+            x: -50
+            y: 0
+          BUR: 6.0 # deg/30m
+          radius: 0.1
+          subs:
+             sub1:
+                dx: 321 # for x,y omission will take old x,y
+                dy: -410 # (-TVD)  to be reac
+                z: -3350
+                azim: 166.7
+                dip: -7.8
+             sub2:
+               L: 1900 # for x,y omission will take old x,y
+             sub3:
+               x: 770
+               y: -2526
+               z: -3125
+        branch1:
+          startsub: sub1 # reference to a node in main_wellbore
+          subs:
+            subl1:
+              x: 404 # for x,y omission will take old x,y
+              y: -687 # (-TVD)  to be reac
+              z: -3309
+              samedir: True
+            subl2:
+              L: 1700 # for x,y omission will take old x,y
+            sub3:
+              x: 838
+              y: -2531
+              z: -3125
+        branch2:
+          startsub: sub1 # reference to a node in main_wellbore
+          subs:
+            subl1:
+              x: 277 # for x,y omission will take old x,y
+              y: -717 # (-TVD)  to be reac
+              z: -3309
+              samedir: True
+            subl2:
+              L: 1700 # for x,y omission will take old x,y
+            sub3:
+              x: 711
+              y: -2560
+              z: -3125
+        branch3:
+          startsub: sub1 # reference to a node in main_wellbore
+          subs:
+            subl1:
+                x: 93 # for x,y omission will take old x,y
+                y: -1069 # (-TVD)  to be reac
+                z: -3267
+                samedir: True
+            subl2:
+                L: 1194 # for x,y omission will take old x,y
+            subl3:
+                x: 412
+                y: -2425
+                z: -3152
+        branch4:
+          startsub: sub1 # reference to a node in main_wellbore
+          subs:
+            subl1:
+                x: 726 # for x,y omission will take old x,y
+                y: -919 # (-TVD)  to be reac
+                z: -3267
+                samedir: True
+            subl2:
+                L: 1194 # for x,y omission will take old x,y
+            subl3:
+                x: 1045
+                y: -2276
+                z: -3152
