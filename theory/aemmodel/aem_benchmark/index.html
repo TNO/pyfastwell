@@ -94,8 +94,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="pyfastwell" class="md-header__button md-logo" aria-label="pyfastwell" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../logo/logo_pyfastwell.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -341,8 +340,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="pyfastwell" class="md-nav__button md-logo" aria-label="pyfastwell" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../logo/logo_pyfastwell.png" alt="logo">
 
     </a>
     pyfastwell
@@ -883,7 +881,12 @@
 <h1 id="analytical-element-method-aem-model-benchmark">Analytical Element Method (AEM) model benchmark</h1>
 <p>The AEM implementation has been tested against doubletcalc1D, the analytical solution thiems
 for a doublet with vertical wells in a homogeneous reservoir (Van Wees et al., 2012).</p>
-<p>In addition, the AEM implementation has been benchmarked against analytical  solution of</p>
+<p>In addition, the AEM implementation has been benchmarked against 
+analytical  solutions of for deviated wells in homogeneous reservoirs by:
+- Cinco et al. (1975) 
+- Rogers and Economides (1996)
+- Besson (1990) </p>
+<p>and against the NLOG spreadsheet based on Egberts and Fokker (2001) for horizontal wells in homogeneous reservoirs.</p>
 <h2 id="thiems-solution-for-multiple-wells-in-a-homogeneous-reservoir">Thiem's solution for multiple wells in a homogeneous reservoir</h2>
 <p>The steady state pressure conditions at distance r from the well radius is given by Thiem’s solution for an infinite aquifer:</p>
 <p><span class="arithmatex">\(p(r) = \frac{\mu q}{2 \pi k H} ( \ln\left(\frac{r}{r_w}\right) + S)\)</span>  (eq. 1)</p>
@@ -926,16 +929,17 @@ is determined by adjusting it so the analytical equation for a vertical well dou
 We see that the approximation breaks down for well lengths equal to or longer than the distance between injection and production well – 1000 m in this case. Below that value, the agreement is excellent. </p>
 <p><img alt="Figure 6" src="../../../images/horizontalwell_khkv1.png" /><br />
 <em>FIGURE 6: Comparison of AEM model results for horizontal wells for varying lengths for khkv=1  (Horizontal to vertical permeability ratio). 
-Comparison of calculations with effective skin based on the NLOG spreadsheet (Fokker et al., 2001) (symbols and dashed lines) and Analytic Elements calculations (symbols and full lines).</em></p>
+Comparison of calculations with effective skin based on the NLOG spreadsheet (Egberts and Fokker, 2001) (symbols and dashed lines) and Analytic Elements calculations (symbols and full lines).</em></p>
 <p><img alt="Figure 7" src="../../../images/horizontalwell_khkv10.png" /><br />
-<em>FIGURE 6: Comparison of AEM model results for horizontal wells for varying lengths for khkv=10  (Horizontal to vertical permeability ratio). 
-Comparison of calculations with effective skin based on the NLOG spreadsheet (Fokker et al., 2001) (symbols and dashed lines) and Analytic Elements calculations (symbols and full lines).</em></p>
+<em>FIGURE 7: Comparison of AEM model results for horizontal wells for varying lengths for khkv=10  (Horizontal to vertical permeability ratio). 
+Comparison of calculations with effective skin based on the NLOG spreadsheet (Egberts and Fokker, 2001) (symbols and dashed lines) and Analytic Elements calculations (symbols and full lines).</em></p>
 <h2 id="equivalent-skin-for-doubletcalc1d">equivalent Skin for Doubletcalc1D</h2>
 <p>The resulting PI and II can be compared to a reference simple well layout (i.e. vertical, not laterals, following cf. DoubletCalc). To this end
 the <a href="../../../api/wellflow/WellFastModel/">Wellfastmodel</a> can be used to calculate the equivalent skin factor for a vertical well which would give the same PI and II as the AEM model.
 see the examples in the examples folder</p>
 <h2 id="references">References</h2>
 <ol>
+<li>Fokker, P. A., Verga, F., &amp; Egberts, P. J., 2005 <em>New semianalytic technique to determine horizontal well productivity index in fractured reservoirs. SPE Reservoir Evaluation &amp; Engineering, 8(02), 123-131.</em></li>
 <li>Egberts, P., Shatyrbayeva, I., Fokker, P.A., 2013. <em>Well inflow modelling for wells not aligned to a numerical grid. SPE 165986.</em></li>
 <li>Egberts, P. J. P., &amp; Fokker, P. A., 2001. <em>A new analytical approximation for the flow into a well in a finite reservoir. Transport in porous media, 44(1), 85-107.</em></li>
 <li>Van Wees, J. D., Kronimus, A., Van Putten, M., Pluymaekers, M., Mijnlieff, H., Van Hooff, P., Obdam, A., &amp; Kramers, L., 2012. <em>Geothermal aquifer performance assessment 
