@@ -55,6 +55,15 @@ tests = [
   "unittest",
 ]
 
+notebook = [
+  "notebook>=7",           # This installs the Jupyter Notebook server
+  "jupyterlab>=4",         # JupyterLab interface
+  "ipykernel>=6",          # Kernel support for notebooks
+  "ipywidgets>=8",         # Interactive widgets
+  "matplotlib>=3.8",       # Plotting library
+  "plotly>=5.20",          # Interactive plots
+]
+
 
 [project.urls]
 Homepage = "https://github.com/TNO/pyfastwell"      # fill in

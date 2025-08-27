@@ -4,7 +4,13 @@
 The AEM implementation has been tested against doubletcalc1D, the analytical solution thiems
 for a doublet with vertical wells in a homogeneous reservoir (Van Wees et al., 2012).
 
-In addition, the AEM implementation has been benchmarked against analytical  solution of
+In addition, the AEM implementation has been benchmarked against 
+analytical  solutions of for deviated wells in homogeneous reservoirs by:
+- Cinco et al. (1975) 
+- Rogers and Economides (1996)
+- Besson (1990) 
+
+and against the NLOG spreadsheet based on Egberts and Fokker (2001) for horizontal wells in homogeneous reservoirs.
 
 ## Thiem's solution for multiple wells in a homogeneous reservoir
 
@@ -69,13 +75,13 @@ We see that the approximation breaks down for well lengths equal to or longer th
 
 ![Figure 6](../../images/horizontalwell_khkv1.png)  
 *FIGURE 6: Comparison of AEM model results for horizontal wells for varying lengths for khkv=1  (Horizontal to vertical permeability ratio). 
-Comparison of calculations with effective skin based on the NLOG spreadsheet (Fokker et al., 2001) (symbols and dashed lines) and Analytic Elements calculations (symbols and full lines).*
+Comparison of calculations with effective skin based on the NLOG spreadsheet (Egberts and Fokker, 2001) (symbols and dashed lines) and Analytic Elements calculations (symbols and full lines).*
 
 
 
 ![Figure 7](../../images/horizontalwell_khkv10.png)  
-*FIGURE 6: Comparison of AEM model results for horizontal wells for varying lengths for khkv=10  (Horizontal to vertical permeability ratio). 
-Comparison of calculations with effective skin based on the NLOG spreadsheet (Fokker et al., 2001) (symbols and dashed lines) and Analytic Elements calculations (symbols and full lines).*
+*FIGURE 7: Comparison of AEM model results for horizontal wells for varying lengths for khkv=10  (Horizontal to vertical permeability ratio). 
+Comparison of calculations with effective skin based on the NLOG spreadsheet (Egberts and Fokker, 2001) (symbols and dashed lines) and Analytic Elements calculations (symbols and full lines).*
 
 
 ##  equivalent Skin for Doubletcalc1D
@@ -86,11 +92,12 @@ see the examples in the examples folder
 
 ## References
 
-1. Egberts, P., Shatyrbayeva, I., Fokker, P.A., 2013. *Well inflow modelling for wells not aligned to a numerical grid. SPE 165986.*
-2. Egberts, P. J. P., & Fokker, P. A., 2001. *A new analytical approximation for the flow into a well in a finite reservoir. Transport in porous media, 44(1), 85-107.*
-3. Van Wees, J. D., Kronimus, A., Van Putten, M., Pluymaekers, M., Mijnlieff, H., Van Hooff, P., Obdam, A., & Kramers, L., 2012. *Geothermal aquifer performance assessment 
+1. Fokker, P. A., Verga, F., & Egberts, P. J., 2005 *New semianalytic technique to determine horizontal well productivity index in fractured reservoirs. SPE Reservoir Evaluation & Engineering, 8(02), 123-131.*
+2. Egberts, P., Shatyrbayeva, I., Fokker, P.A., 2013. *Well inflow modelling for wells not aligned to a numerical grid. SPE 165986.*
+3. Egberts, P. J. P., & Fokker, P. A., 2001. *A new analytical approximation for the flow into a well in a finite reservoir. Transport in porous media, 44(1), 85-107.*
+4. Van Wees, J. D., Kronimus, A., Van Putten, M., Pluymaekers, M., Mijnlieff, H., Van Hooff, P., Obdam, A., & Kramers, L., 2012. *Geothermal aquifer performance assessment 
 for direct heat production–Methodology and application to Rotliegend aquifers. Netherlands Journal of Geosciences 91 (04): 651-665.*
-4. CH. Cinco, F.G. Miller, H.J. Ramey Jr., 1975. *Unsteady-state pressure distribution created by a directionally drilled well. J. Petrol. Technol., 27 (11) (1975), pp. 1-392*
-5. E.J. Rogers, M.J. Economides, 1996.  *The skin due to slant of deviated wells in permeability-anisotropic reservoirs International Conference on Horizontal Well Technology, Society of Petroleum Engineers*
-6. Besson H., 1990. *Performance of slanted and horizontal wells on an anisotropic medium. European Petroleum Conference, Society of Petroleum Engineers (1990)*
+5. CH. Cinco, F.G. Miller, H.J. Ramey Jr., 1975. *Unsteady-state pressure distribution created by a directionally drilled well. J. Petrol. Technol., 27 (11) (1975), pp. 1-392*
+6. E.J. Rogers, M.J. Economides, 1996.  *The skin due to slant of deviated wells in permeability-anisotropic reservoirs International Conference on Horizontal Well Technology, Society of Petroleum Engineers*
+7. Besson H., 1990. *Performance of slanted and horizontal wells on an anisotropic medium. European Petroleum Conference, Society of Petroleum Engineers (1990)*
 
