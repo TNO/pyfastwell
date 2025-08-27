@@ -881,9 +881,8 @@
 <h1 id="analytical-element-method-aem-model-benchmark">Analytical Element Method (AEM) model benchmark</h1>
 <p>The AEM implementation has been tested against doubletcalc1D, the analytical solution thiems
 for a doublet with vertical wells in a homogeneous reservoir (Van Wees et al., 2012).</p>
-<p>In addition, the AEM implementation has been benchmarked against 
-analytical  solutions of for deviated wells in homogeneous reservoirs by:
-- Cinco et al. (1975) 
+<p>In addition, the AEM implementation has been benchmarked against analytical  solutions of for deviated wells in homogeneous reservoirs by:
+- Cinco et al. (1975)
 - Rogers and Economides (1996)
 - Besson (1990) </p>
 <p>and against the NLOG spreadsheet based on Egberts and Fokker (2001) for horizontal wells in homogeneous reservoirs.</p>
@@ -893,9 +892,12 @@ analytical  solutions of for deviated wells in homogeneous reservoirs by:
 <p>The pressure differences can be superposed for N wells. For a doublet configuration, the system of equations reduces to the well-known steady state solution (e.g. Van Wees et al., 2012):</p>
 <p><span class="arithmatex">\(\Delta p = \frac{\mu_i q}{ 2\pi k H} ( \ln\left( \frac{L}{r_i} \right) + S_i) +  \frac{\mu_p q}{ 2 \pi k H} ( \ln\left( \frac{L}{r_p} \right) + S_p)\)</span> (eq. 2)</p>
 <p>where </p>
-<p><span class="arithmatex">\(r_i\)</span> and <span class="arithmatex">\(r_p\)</span> are the well radii of the injector and producer respectively. 
+<p><span class="arithmatex">\(L\)</span> is the distance between the wells,
+<span class="arithmatex">\(k\)</span> is the permeability of the reservoir,
+<span class="arithmatex">\(H\)</span> is the thickness of the reservoir,
+<span class="arithmatex">\(r_i\)</span> and <span class="arithmatex">\(r_p\)</span> are the well radii of the injector and producer respectively. 
 <span class="arithmatex">\(S_i\)</span> and <span class="arithmatex">\(S_p\)</span> are the skin factors of the injector and producer respectively.
-<span class="arithmatex">\(mu_i\)</span> and <span class="arithmatex">\(mu_p\)</span> are the viscosities at the injector and producer respectively.</p>
+<span class="arithmatex">\(\mu_i\)</span> and <span class="arithmatex">\(\mu_p\)</span> are the viscosities at the injector and producer respectively.</p>
 <p><img alt="Figure 1" src="../../../images/benchmark_DC1D_AEM_THIEMS.png" />  <em>FIGURE 1: Comparison of AEM model results with Thiem's solution
 and DoubletCalc1D for a doublet with vertical wells in a homogeneous reservoir with top reservoir at 2300 m depth and thickness of 100 m. Skins are set to 0.
 The viscosity is temperature and salinity dependent according to Van Wees et al. (2012).
@@ -911,7 +913,7 @@ they are compared to the analytical solutions from Cinco et al. (1975), Rogers a
 with Thiem's solution and DoubletCalc1D for a doublet with vertical wells in a homogeneous reservoir according to eq. 2. Well Skins are set to 0.
 The viscosity is temperature and salinity dependent according to Van Wees et al. (2012). For increasing deviation from vertical, 
 the AEM results are compared with the analytical solutions described in the paragraph.<br />
-This figure can be reproduced with the corresponding unittest in </em>test_benchmark_aem.py**</p>
+This figure can be reproduced with the corresponding unittest in test_benchmark_aem.py</em></p>
 <p><img alt="Figure 3" src="../../../images/skin_vs_deviation3.png" /><br />
 <em>FIGURE 3: Comparison of AEM model results for varying deviations for khkv=3 (Horizontal to vertical permeability ratio)</em></p>
 <p><img alt="Figure 4" src="../../../images/skin_vs_deviation5.png" /><br />
@@ -936,7 +938,7 @@ Comparison of calculations with effective skin based on the NLOG spreadsheet (Eg
 <h2 id="equivalent-skin-for-doubletcalc1d">equivalent Skin for Doubletcalc1D</h2>
 <p>The resulting PI and II can be compared to a reference simple well layout (i.e. vertical, not laterals, following cf. DoubletCalc). To this end
 the <a href="../../../api/wellflow/WellFastModel/">Wellfastmodel</a> can be used to calculate the equivalent skin factor for a vertical well which would give the same PI and II as the AEM model.
-see the examples in the examples folder</p>
+see the examples in the examples folder.</p>
 <h2 id="references">References</h2>
 <ol>
 <li>Fokker, P. A., Verga, F., &amp; Egberts, P. J., 2005 <em>New semianalytic technique to determine horizontal well productivity index in fractured reservoirs. SPE Reservoir Evaluation &amp; Engineering, 8(02), 123-131.</em></li>

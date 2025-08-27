@@ -952,8 +952,8 @@
 
 <h1 id="pywellfast-calculation-methods">pywellfast calculation methods</h1>
 <h2 id="introduction">introduction</h2>
-<p>pywellfast is dependent on two python libraries developed by TNO: pythermonomics, and pywellgeo, which do the techno-economic calculations, and defined the well architectures respectively.</p>
-<p>pywellfast  is an extension of  these packages. It includes:
+<p>pyfastwell is dependent on two python libraries developed by TNO: pythermonomics, and pywellgeo, which do the techno-economic calculations, and defined the well architectures respectively.</p>
+<p>pyfastwell is an extension of  these packages. It includes:
 - Analytical Element Method (AEM) (Fokker et al., 2005, Egberts et al., 2013) to calculate the well flow performance of advanced well architectures for homogeneous reservoir properties
 - coldfront tracking in the reservoir, based on finite difference solution
 - effects of brine properties (heat capacity, viscosity, density) on well flow performance
@@ -977,9 +977,9 @@ and the cooling of the produced brine in the heat conversion process:</p>
 <h2 id="doublet-well-architectures">Doublet well architectures</h2>
 <p>The well architecture can be defined in a flexible way, using the pywellresult package.</p>
 <h2 id="doublet-flow-performance">Doublet flow performance</h2>
-<p>Achievable flow rates  are calculated with the <a href="../aemmodel/aem_model/">AEM model</a> in pywellfast. The AEM model calculates the well inflow performance based on the well architecture, reservoir properties, and fluid properties.
+<p>Achievable flow rates  are calculated with the <a href="../aemmodel/aem_model/">AEM model</a> in pyfastwell. The AEM model calculates the well inflow performance based on the well architecture, reservoir properties, and fluid properties.
 The coldfront evolution in the reservoir is calculated based on a finite difference solution, taking into account the flow rate, reservoir properties, and thermal properties of the fluid.
-The <a href="../aemmodel/aem_model/">AEM model</a>  section provides more details on the AEM implementation in pywellfast.
+The <a href="../aemmodel/aem_model/">AEM model</a>  section provides more details on the AEM implementation in pyfastwell.
 and has been extensively benchmarked against semi-analytical and numerical models as described in the <a href="../aemmodel/aem_benchmark/">AEM benchmark</a> section.</p>
 <h2 id="doublet-coldfront-evolution">Doublet  coldfront evolution</h2>
 <p>The coldfront evolution in the reservoir is calculated based on a finite difference solution, taking into account the flow rate, reservoir properties, and thermal properties of the fluid.
