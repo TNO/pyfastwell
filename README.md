@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="docs/logo/logo_pyfastwell.png" alt="pyfastwell Logo" />
+  <img src="docs/logo/logo_pyfastwell.png" alt="pyfastwell Logo" width="300"/>
 </p>
+
 
 # Pyfastwell
 
@@ -47,6 +48,12 @@ pip install pyfastwell
   ```sh
   pip install pyfastwell[tests]
   ```
+- **Run Jupyter Notebook example:**  
+To run the notebook example, install with the `notebook` extra:
+  ```sh
+  pip install pyfastwell[notebook]
+  ```
+
   
 ## Contributing
 

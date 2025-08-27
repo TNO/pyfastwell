@@ -2,6 +2,7 @@ site_name: pyfastwell
 repo_url: https://github.com/your-org/geothermal-npv-calc
 theme:
   name: material
+  logo: logo/logo_pyfastwell.png
   features:
     - navigation.tabs
     - navigation.tabs.sticky

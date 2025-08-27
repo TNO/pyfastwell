@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="logo/logo_pyfastwell.png" alt="pyfastwell Logo" width="300"/>
+</p>
+
 # pyfastwell Documentation
 
 Welcome to the pyfastwell documentation!
