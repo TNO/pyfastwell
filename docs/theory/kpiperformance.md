@@ -1,6 +1,6 @@
 # Key Performance indicators
 
-Key Performance Indicators (KPIs) are essential metrics used to evaluate the performance of geothermal projects. In pywellfast, KPIs are calculated based on the results of the DoubletCalc and economic model calculations. 
+Key Performance Indicators (KPIs) are essential metrics used to evaluate the performance of geothermal projects. In pyfastwell, KPIs are calculated based on the results of the DoubletCalc and economic model calculations. 
 The KPIs provide insights into the efficiency, profitability, and sustainability of geothermal energy projects.
 
 The KPI have been subdivided into the following categories:

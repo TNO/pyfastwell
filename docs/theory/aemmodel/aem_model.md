@@ -147,10 +147,10 @@ analytical models including Doubletcalc1D in [AEM benchmark](aem_benchmark.md)
 
 ## Using and comparing results in Doubletcalc1D
 
-The AEM implementation in pywellfast adopts the geothermal gradeint and  brine viscosity formulation as adopted 
+The AEM implementation in pyfastwell adopts the geothermal gradeint and  brine viscosity formulation as adopted 
 in  [DoubletCalc1D](https://www.nlog.nl/en/tools), adopting Batzle and Wang viscosity
 
-pywellfast contains a function to calculate the equivalent Skins for the injector and 
+pyfastwell contains a function to calculate the equivalent Skins for the injector and 
 producer wells in [DoubletCalc1D](https://www.nlog.nl/en/tools). These have been validated
 in the [AEM benchmark](aem_benchmark.md)
 

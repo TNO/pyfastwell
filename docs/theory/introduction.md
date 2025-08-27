@@ -4,9 +4,9 @@
 
 
 
-pywellfast is dependent on two python libraries developed by TNO: pythermonomics, and pywellgeo, which do the techno-economic calculations, and defined the well architectures respectively.
+pyfastwell is dependent on two python libraries developed by TNO: pythermonomics, and pywellgeo, which do the techno-economic calculations, and defined the well architectures respectively.
 
-pywellfast  is an extension of  these packages. It includes:
+pyfastwell is an extension of  these packages. It includes:
 - Analytical Element Method (AEM) (Fokker et al., 2005, Egberts et al., 2013) to calculate the well flow performance of advanced well architectures for homogeneous reservoir properties
 - coldfront tracking in the reservoir, based on finite difference solution
 - effects of brine properties (heat capacity, viscosity, density) on well flow performance
@@ -42,9 +42,9 @@ The well architecture can be defined in a flexible way, using the pywellresult p
 
 ##  Doublet flow performance
 
-Achievable flow rates  are calculated with the [AEM model](aemmodel\aem_model.md) in pywellfast. The AEM model calculates the well inflow performance based on the well architecture, reservoir properties, and fluid properties.
+Achievable flow rates  are calculated with the [AEM model](aemmodel\aem_model.md) in pyfastwell. The AEM model calculates the well inflow performance based on the well architecture, reservoir properties, and fluid properties.
 The coldfront evolution in the reservoir is calculated based on a finite difference solution, taking into account the flow rate, reservoir properties, and thermal properties of the fluid.
-The [AEM model](aemmodel\aem_model.md)  section provides more details on the AEM implementation in pywellfast.
+The [AEM model](aemmodel\aem_model.md)  section provides more details on the AEM implementation in pyfastwell.
 and has been extensively benchmarked against semi-analytical and numerical models as described in the [AEM benchmark](aemmodel/aem_benchmark.md) section.
 
 ##  Doublet  coldfront evolution
