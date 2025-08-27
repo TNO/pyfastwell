@@ -4,7 +4,7 @@
 
 
 
-pywellfast allows to trace the coldfront evolution in the reservoir, based on a finite difference solution.
+pyfastwell allows to trace the coldfront evolution in the reservoir, based on a finite difference solution.
 
 It traces the coldfront in 2D, using as input the inflow and outflow calculated by the AEM model, reservoir properties, and thermal properties of the fluid.
 
@@ -13,7 +13,7 @@ It does not take into account thermal diffusion
 It allows to visually inspect the coldfront evolution in the reservoir
 
 
-The coldfront tracking is implemented in the `ColdFront` class in the `pywellfast.coldfront` module.
+The coldfront tracking is implemented in the `ColdFront` class in the `pyfastwell.coldfront` module.
 
 The coldfront tracking is based on a finite difference solution, using a grid in the reservoir.
 The coldfront tracking is based on the following assumptions:

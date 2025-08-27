@@ -1,4 +1,4 @@
-#  Using pywellfast for geothermal doublet performance assessment
+#  Using pyfastwell for geothermal doublet performance assessment
 
 ## steps to perform a geothermal doublet performance assessment
 
@@ -23,7 +23,7 @@ An example of a settingfile is shown below. More explenation of the parameters c
 The reservoir_simulation_parameters production_temperature, injection_BHP, production_BHP and flow rate can be modified later in the
 WellFastmodel class.
 
-The well_trajectories section is ignored by pywellfast, but is required to parse the file with pythermonomics.
+The well_trajectories section is ignored by pyfastwell, but is required to parse the file with pythermonomics.
 
 ```yaml
 energy_loss_parameters:

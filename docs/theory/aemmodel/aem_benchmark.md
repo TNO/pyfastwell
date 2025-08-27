@@ -4,9 +4,8 @@
 The AEM implementation has been tested against doubletcalc1D, the analytical solution thiems
 for a doublet with vertical wells in a homogeneous reservoir (Van Wees et al., 2012).
 
-In addition, the AEM implementation has been benchmarked against 
-analytical  solutions of for deviated wells in homogeneous reservoirs by:
-- Cinco et al. (1975) 
+In addition, the AEM implementation has been benchmarked against analytical  solutions of for deviated wells in homogeneous reservoirs by:
+- Cinco et al. (1975)
 - Rogers and Economides (1996)
 - Besson (1990) 
 
@@ -25,9 +24,12 @@ $\Delta p = \frac{\mu_i q}{ 2\pi k H} ( \ln\left( \frac{L}{r_i} \right) + S_i) +
 
 where 
 
+$L$ is the distance between the wells,
+$k$ is the permeability of the reservoir,
+$H$ is the thickness of the reservoir,
 $r_i$ and $r_p$ are the well radii of the injector and producer respectively. 
 $S_i$ and $S_p$ are the skin factors of the injector and producer respectively.
-$mu_i$ and $mu_p$ are the viscosities at the injector and producer respectively.
+$\mu_i$ and $\mu_p$ are the viscosities at the injector and producer respectively.
 
 
 ![Figure 1](../../images/benchmark_DC1D_AEM_THIEMS.png)  *FIGURE 1: Comparison of AEM model results with Thiem's solution
@@ -49,7 +51,7 @@ they are compared to the analytical solutions from Cinco et al. (1975), Rogers a
 with Thiem's solution and DoubletCalc1D for a doublet with vertical wells in a homogeneous reservoir according to eq. 2. Well Skins are set to 0.
 The viscosity is temperature and salinity dependent according to Van Wees et al. (2012). For increasing deviation from vertical, 
 the AEM results are compared with the analytical solutions described in the paragraph.  
-This figure can be reproduced with the corresponding unittest in *test_benchmark_aem.py**
+This figure can be reproduced with the corresponding unittest in test_benchmark_aem.py*
 
 ![Figure 3](../../images/skin_vs_deviation3.png)  
 *FIGURE 3: Comparison of AEM model results for varying deviations for khkv=3 (Horizontal to vertical permeability ratio)*
@@ -88,7 +90,7 @@ Comparison of calculations with effective skin based on the NLOG spreadsheet (Eg
 
 The resulting PI and II can be compared to a reference simple well layout (i.e. vertical, not laterals, following cf. DoubletCalc). To this end
 the [Wellfastmodel](../../api/wellflow/WellFastModel.md) can be used to calculate the equivalent skin factor for a vertical well which would give the same PI and II as the AEM model.
-see the examples in the examples folder
+see the examples in the examples folder.
 
 ## References
 
