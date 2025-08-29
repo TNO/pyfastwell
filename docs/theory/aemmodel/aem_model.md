@@ -40,7 +40,7 @@ P_i = \frac{\mu}{2 \pi k H} \left( \sum_{j=1}^{N} q_j\ln r_e  + q_i\left[\ln\fra
 $$
 
 
-When the injectors have a pressure $P_i=P_{inj}$ and the producers are known to have the same pressure $P_P$, we have (with $P_i=0$ for the producers) the following system of equations to solve:
+When the injectors have a pressure $P_i=P_{inj}$ and the producers are known to have the same (but yet unknown) pressure $P_P$, we have the following system of equations to solve:
 
 $$
 \begin{bmatrix}
@@ -101,37 +101,36 @@ Please note that the viscosity is constant for each row of the equations(cf. eq.
 
 ## Three-Dimensional Solution
 
-In three dimensions the system of equations is setup for N well line segments instead of N wells. 
+In three dimensions the system of equations is set up for $N$ well line segments instead of $N$ wells. 
 The structure of the system of equations remains the same, 
 and the system of equations and solution approach (excluding the last row and column) 
 is explained in detail in the annex of Egberts et al. (2013). 
-The M submatrix is a summation over line segment contribution of injectors and producers (k = 0) 
-and multiple images below the base and above the top of the reservoir, marked by the indices k = -1 and k = 1. 
-These image contributions enforce no flow boundary conditions at the top and base of the reservoir. 
-The i and j denote pairs of control point location for each of the line segments (chosen at the middle) and is at least $r_w$ away from the well bore segment i.
+The $M$ submatrix is a summation over line segment contribution of injectors and producers 
+and multiple images below the base and above the top of the reservoir, marked by the index $k$. 
+These image contributions enforce no-flow boundary conditions at the top and base of the reservoir. 
+The $i$ and $j$ denote pairs of control point location for each of the line segments (chosen at the middle) and is at least $r_w$ away from the well bore segment $i$.
+The expression for the pressure field resulting from a finite well segment is different from the 2D expression for fully penetrating wells, and the skin of a well is accounted for by implementing an effective wellbore radius $r_w'=r_we^{-S}$. The expressions read:
 
-$$M_{ij} = \sum_{k=-1}^{1} \frac{\mu_i}{2 \pi k H} (\ln\left( \frac{1}{r_{ijk}} +S_i) \right)$$
+$$M_{ij} = \frac{\mu_i}{2 \pi k H} \sum_{k=-N_{im}}^{N_{im}} \frac{1}{L_i}\ln\left( \frac{d_{ijk}+e_{ijk}+2L_i}{d_{ijk}+e_{ijk}-2L_i}\right)$$
 
-Such that the full system of equations becomes:
+$L_i$ is the length of the well segment $i$; $d_{ijk}$ and $e_{ijk}$ are the distance of the point of evaluation (at the effective well radius of the segment source, or at one of the other well segments) to the centre of the source or one of its images. The full system of equations becomes:
 
 
 $$
 \begin{bmatrix}
-M_{ij} & \cdots & D_1 \\\\
-\vdots & \ddots & \vdots \\\\
-M_{ij} & \cdots & D_N \\\\
-1 & \cdots & 0
+M_{11} & \cdots & M_{1N} & D_1 \\\\
+\vdots & \ddots & \vdots & \vdots \\\\
+M_{N1} & \cdots & M_{NN} & D_N \\\\
+1 & \cdots & 1 & 0
 \end{bmatrix}
 \begin{bmatrix}
 q_1 \\\\
-q_2 \\\\
 \vdots \\\\
 q_N \\\\
 P_p
 \end{bmatrix}=
 \begin{bmatrix}
 P_1 \\\\
-P_2 \\\\
 \vdots \\\\
 P_N \\\\
 0
@@ -140,9 +139,8 @@ $$
 
 
 The method of Egberts et al. (2013) allows to incorporate an anisotropic permeability field.
-In addition additional images are included to enforce spatial constrains in flow (i.e. no flow barriers). 
-The AEM also allows to be extended to incorporate frictional losses in the right hand side based on the solution for .
-This requires an iterative solution and needs to model the exact well segment pressure. Please note that the solution is in 3D is based a single reference  well pressure  and  relative to the ambient pressure, and neglects potential vertical variation in pressure in the well bore compared to the ambient reservoir pressure. This is considered a valid  assumption for geothermal reservoirs.
+It also allows to be extended to incorporate frictional losses in the solution; this has not been implemented.
+The current solution in 3D is based a single reference well pressure relative to the ambient pressure, and neglects potential vertical variation in pressure in the wellbore compared to the ambient reservoir pressure. This is considered a valid  assumption for geothermal reservoirs.
 
 ## Benchmark
 
