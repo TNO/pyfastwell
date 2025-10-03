@@ -1,5 +1,7 @@
 from pywellgeo.well_tree.well_tree_tno import *
 from pywellgeo.well_data.names_constants import Constants
+import numpy as np
+import pandas as pd
 
 class WiTNO:
     '''
@@ -10,7 +12,7 @@ class WiTNO:
 
     def __init__ (self, inj: WellTreeTNO, prod: WellTreeTNO, ztop, zbottom,
                   kx, ky, kz, muinj=1e-3, muprod=1e-3, restrictbranch=None, segmentlength=100, verbose=False):
-        """"
+        """
         initialize the well index calculation object
 
         Parameters:
@@ -160,7 +162,6 @@ class WiTNO:
         delta = (self.kx/self.ky)**0.5
         beta = ( (a/b) * np.cos(phi)**2 + (b/a) * np.sin(phi)**2 ) ** 0.5
         gamma = ( np.cos(theta)**2 +  ( (a**2/c**2) *np.cos(phi)**2 + (b**2/c**2) * np.sin(phi)**2 ) * np.sin(theta)**2 ) **0.5
-        rweff = 0.5 * (rw / alfa **(1.0/3.0)) *(1/beta) * np.sqrt ((1+ beta**2/gamma)**2 + ( (delta-1/delta) * (np.cos(theta)*np.cos(phi)*np.sin(phi)/gamma) )**2)
         rweff = 0.5 * rw / alfa ** (1.0 / 3.0) * (1 / beta) * np.sqrt((1 + (beta ** 2 / gamma)) ** 2  + ((delta - 1 / delta) * np.cos(theta) * np.cos(phi) * np.sin(phi) / gamma) ** 2)
         return rweff
 
@@ -320,7 +321,7 @@ class WiTNO:
                                 for jcontrol in range(self.ncontrol):
                                     value = I_0
                                     if (n > 0):
-                                        value = self.get_Infast(jcontrol, a, b, c, s1, s2, I_0)
+                                        value = self._get_Infast(jcontrol, a, b, c, s1, s2, I_0)
                                     ii = iseg * self.ncontrol + jcontrol
                                     m[kk][ii] += self.bfac[kseg] * L * value
 
@@ -333,10 +334,9 @@ class WiTNO:
                                         m[ii][self.M - 1] = -1
                                         brhs[ii] = 0
 
-        minv = np.linalg.inv(m)
         if (doprint):
             print(' dp ', brhs)
-        res = np.dot(minv, brhs)
+        res = np.linalg.solve(m, brhs)
         if (doprint):
             print('correct input ', np.dot(m, res))
 
@@ -472,10 +472,9 @@ class WiTNO:
                                 m[ii][self.M - 1] = -1
                                 brhs[ii] = 0
 
-        minv = np.linalg.inv(m)
         if (verbose):
             print(' dp ', brhs)
-        res = np.dot(minv, brhs)
+        res = np.linalg.solve(m, brhs)
         if (verbose):
             print('correct input ', np.dot(m, res))
 
@@ -498,7 +497,6 @@ class WiTNO:
         self._scale(sinv)
 
         return res, injindex, prodindex
-
 
 
 
