@@ -16,6 +16,7 @@ settingfile = 'input/npv_thermogis2024_138.yml'
 files = ['inputsMultilateral3legsDetailed','inputsStandardDetailed' , 'inputsDetailedTNOhor',
                    'inputXYZspline', 'inputXYZ3legs', 'inputXYZvertical']
 
+
 for file in files:
     trajectoryfile = os.path.join('input', file+'.yml')
     print("---------------------------------------------")
