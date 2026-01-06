@@ -38,7 +38,7 @@ techno_economic_parameters:
   tax_depreciation_nyear: 15
   heat_price: 5  # EURct/kWh
   heat_price_feedin: 5.1  # heat price for subsidy years EURct/kWh
-  electricity_price:  5  #EURct/kWh
+  electricity_price:  8 #EURct/kWh
   lifecycle_years : 30  # Project lifetime in number of years: 15
   subsidy_years: 15
 

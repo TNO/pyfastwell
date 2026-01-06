@@ -21,7 +21,7 @@ def main():
     trajectoryfile = 'inputBLT01/inputs_BLT01.yml'
 
     free_dist = {'k': {'dist': 'uniform', 'values': [80, 120]},
-                 'L': {'dist': 'uniform', 'values': [200, 2000]} }
+                 'Lh': {'dist': 'uniform', 'values': [80, 2000]} }
 
 
     locked_param =  { 't': t, 'top': 1925, 'H':  60, 'DY': 900,   'DPBHP': 50,
@@ -33,12 +33,12 @@ def main():
 
     # get median values for the parameters and test the forward function
     funcparam = model.stoch.getmedianparams()
-    funcparam[1] = 1800
+    #funcparam[1] = 1800
     res = model.forward(funcparam, verbose = True)
     param_units = ['[mDarcy]', '[m]']
 
     # for the median parameter values get the equivalent skin for Doubletcalc1D, plot the model
-    L = funcparam[1]
+    L = locked_param['DY']
     dia_inch = 8
     rw = dia_inch * 0.0254 * 0.5
     skin_inj, skin_prd, ratio = model.fastmodel.getSkinFactors_dc1d(L, rw)
