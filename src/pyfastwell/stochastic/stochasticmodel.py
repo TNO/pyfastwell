@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 from matplotlib import pyplot as plt
 from typing import Any, Optional, Callable, List, Dict
@@ -199,7 +201,7 @@ class Stochasticmodel(object):
 
 
 
-    def plot_distribution(self, results:np.ndarray, name:str):
+    def plot_distribution(self, results:np.ndarray, name:str, filename_noext: Optional[str]=None) -> None:
         """
         Plot the distribution of a parameter forward model results
 
@@ -209,18 +211,31 @@ class Stochasticmodel(object):
 
         name: name of the plot
 
+        filename_noext: full path filename  to save the plot
+
         Returns
         -------
         None
         """
 
+        if (filename_noext != None):
+            directory = os.path.dirname(filename_noext)
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+            tofile = f'{filename_noext}_dist_{name}.png'
+        else:
+            tofile = None
         plt.figure(figsize=(10, 6))
         plt.hist(results, bins=30, density=True, alpha=0.6, color='g')
         plt.xlabel(name)
         plt.ylabel('Density')
         plt.title('Histogram of ' + name)
         plt.grid(True)
-        plt.show()
+        if (tofile != None):
+            plt.savefig(tofile)
+        else:
+            plt.show()
+        plt.close()
 
     def expectation_plot(
             self,
@@ -229,6 +244,7 @@ class Stochasticmodel(object):
             percent: bool = True,
             expectation: bool = True,
             pvals: Optional[List[float]] = None,
+            filename_noext: Optional[str] = None
     ) -> None:
 
         """
@@ -252,6 +268,13 @@ class Stochasticmodel(object):
         None
         """
 
+        if (filename_noext != None):
+            directory = os.path.dirname(filename_noext)
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+            tofile = f'{filename_noext}_expt_{name}.png'
+        else:
+            tofile = None
 
         # Sort the sample values
         sorted_samples = np.sort(results)
@@ -283,5 +306,65 @@ class Stochasticmodel(object):
                 plt.annotate(label, (v, pval), textcoords="offset points", xytext=(5, 5), ha='center')
 
 
+        if (tofile != None):
+            plt.savefig(tofile)
+        else:
+            plt.show()
+        plt.close()
 
-        plt.show()
+    def cross_plot(
+            self,
+            inputval: np.ndarray,
+            inputname: str,
+            results: np.ndarray,
+            name: str,
+            filename_noext: Optional[str] = None
+    ) -> None:
+
+        """
+        Plot the expectation of a parameter forward model results
+
+        Parameters
+        ----------
+        input:  sampled model parameters of the forward model
+        results: results of the forward model for the ensemble ndarray
+
+        name: name of the plot
+
+        percent: if True, the y-axis is in percent, otherwise in fraction
+
+        expectation: if True, the y-axis is reversed interpreting the results as expectation
+
+        pvals: pvalues to be plotted (list)
+
+
+        Returns
+        -------
+        None
+        """
+
+        if (filename_noext != None):
+            directory = os.path.dirname(filename_noext)
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+            tofile = f'{filename_noext}_cross_{name}_{inputname}.png'
+        else:
+            tofile = None
+
+
+        # Compute the cumulative density
+
+        plt.figure(figsize=(10, 6))
+        plt.scatter(inputval, results, marker='o')
+        plt.xlabel(inputname)
+        plt.ylabel(name)
+        plt.grid(True)
+
+
+
+
+        if (tofile != None):
+            plt.savefig(tofile)
+        else:
+            plt.show()
+        plt.close()

@@ -1,0 +1,44 @@
+format: "DETAILEDTNO"
+
+reservoir:
+    basic:
+        top_reservoir_depth_TVD: 1925 # m TVD, 60 m net thickness
+        bottom_reservoir_depth_TVD: 1985 # m TVD
+
+well_trajectories:
+   INJ1:
+        main_wellbore:
+          name: well1
+          wellhead:
+              x: 0
+              y: -20
+          BUR: 6.0 # deg/30m
+          radius: 0.1
+          subs:
+             sub1:
+                x: 500  # for x,y omission will take old x,y
+                y : -500
+                z: -1920  # (-TVD)  to be reached
+                azim: 90 # azim/dip at new x,y,z,  omitting means construct plane from last azim/dip and new x,y,z, and use dip or pitch to find azim
+                dip:  3 # dip direction
+             sub2:
+                L: 1300
+
+
+   PRD1:
+        main_wellbore:
+          name: well2
+          wellhead:
+              x: 0
+              y: 20
+          BUR: 6.0 # deg/30m
+          radius: 0.1
+          subs:
+             sub1:
+                x: 500  # for x,y omission will take old x,y
+                y : 500
+                z: -1920  # (-TVD)  to be reached
+                azim: 90 # azim/dip at new x,y,z,  omitting means construct plane from last azim/dip and new x,y,z, and use dip or pitch to find azim
+                dip: 3 # dip direction
+             sub2:
+                L: 1300

@@ -16,12 +16,12 @@ ILCOH=4
 
 
 """
-this is a stochastic model wrapper around the dc1dwell model and the geothermal economics model
+this is a stochastic_dc1d model wrapper around the dc1dwell model and the geothermal economics model
 it can be used to generate ensembles of npv and cop values based on uncertain parameters
 
 """
 
-class   Dc1d_lg_model(object):
+class   Dc1d_stoch_model(object):
     """
     StochasticWellModel class
     """
@@ -134,7 +134,7 @@ def main():
     locked_param = { 't': t, 'topdepth': 1500, 'DP': 30, 'return_temp': 30, 'qvol':qvol }
 
     settingfile = 'input/npv_thermogis2024_138.yml'
-    dc1dmodel = Dc1d_lg_model(settingfile, dc1dsettings, locked_param=locked_param, free_dist=free_dist)
+    dc1dmodel = Dc1d_stoch_model(settingfile, dc1dsettings, locked_param=locked_param, free_dist=free_dist)
 
     # get median values for the parameters and test the forward function
     funcparam = dc1dmodel.stoch.getmedianparams()
@@ -152,10 +152,14 @@ def main():
     # second index is the output index of the model predictions, typically INPV or ICOP
     # third index is the time index in the model predictions, ITIME
     pvals = [10,30,50,70,90]
-    dc1dmodel.stoch.expectation_plot(fwi[:, IPOWER, ITIME], 'POWER [MW] ', pvals=pvals)
-    dc1dmodel.stoch.expectation_plot(fwi[:, ICOP, ITIME], 'COP [-]', pvals=pvals)
-    dc1dmodel.stoch.expectation_plot(fwi[:, INPV, ITIME], 'NPV [mln EUR]', pvals=pvals)
-    dc1dmodel.stoch.expectation_plot(fwi[:, ILCOH, ITIME], 'LCOH [EUR/MWh]', pvals=pvals)
+    resnames = ['POWER [MW]', 'COP [-]', 'NPV [mln EUR]', 'LCOE [EUR MWh-1]']
+    indices = [ IPOWER, ICOP, INPV, ILCOH]
+    for ires, resname in enumerate(resnames):
+        index = indices[ires]
+        dc1dmodel.stoch.expectation_plot(fwi[:, index, ITIME], resname, pvals=pvals, filename_noext='output/dc1d/dc1d')
+        for i,param in enumerate(dc1dmodel.stoch.argdict['free_param']):
+            dc1dmodel.stoch.cross_plot(np.array(M)[:,i], param, fwi[:, index, ITIME], resname,filename_noext='output/dc1d/dc1d')
+
 
 
 __main__ = main()
