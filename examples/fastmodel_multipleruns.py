@@ -1,6 +1,5 @@
 """
-Wellcostmodel computes multilateral well costs 
-based on well trajectory and well construction
+Fastmodel deterministic computation example for various input trajectory files
 """
 import os
 
