@@ -135,7 +135,7 @@ class   Fastmodel_stoch_BLT01(object):
         :return: dictionary with the parameters
         """
         g = { 'top': 1925, 'H':  60, 'k': 50, 'khkv': 3,
-              'DY': 800, 'L': 1000,  'DPBHP': 60, 'cop_crit': 10,
+              'DY': 800, 'Lh': 1000,  'DPBHP': 60, 'cop_crit': 10,
               'tinj': 36, 'tgrad': 0.03376 }
         return g
 
@@ -180,7 +180,7 @@ class   Fastmodel_stoch_BLT01(object):
         k = self.stoch.get_from_dict('k', param)
         khkv = self.stoch.get_from_dict('khkv', param)
         DY  = self.stoch.get_from_dict('DY', param)
-        L = self.stoch.get_from_dict('L', param)
+        Lh = self.stoch.get_from_dict('Lh', param)
         DPBHP = self.stoch.get_from_dict('DPBHP', param)
         cop_crit = self.stoch.get_from_dict('cop_crit', param)
         tinj = self.stoch.get_from_dict('tinj', param)
@@ -195,17 +195,17 @@ class   Fastmodel_stoch_BLT01(object):
         # make modifications to the  model yml to support sampled values
         dt['reservoir']['basic']['top_reservoir_depth_TVD'] = top
         dt['reservoir']['basic']['bottom_reservoir_depth_TVD'] = bottom
-        dip = np.asin(H/L) * 180.0 / np.pi
+        dip = np.asin(H/Lh) * 180.0 / np.pi
         tomodify = dt['well_trajectories']['INJ1']['main_wellbore']['subs']
         tomodify['sub1']['dip'] = float(dip)
         tomodify['sub1']['y'] = float(-0.5 * DY)
         tomodify['sub1']['z'] = float(-top)
-        tomodify['sub2']['L'] = float(L)
+        tomodify['sub2']['L'] = float(Lh+0.1)
         tomodify = dt['well_trajectories']['PRD1']['main_wellbore']['subs']
         tomodify['sub1']['dip'] = float(dip)
         tomodify['sub1']['y'] = float(0.5 * DY)
         tomodify['sub1']['z'] = float(-top)
-        tomodify['sub2']['L'] = float(L)
+        tomodify['sub2']['L'] = float(Lh+0.1)
         with open(self.trajectoryfile, 'w') as f:
             yaml.dump(dt, f, default_flow_style=False)
 
