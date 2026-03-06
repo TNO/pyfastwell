@@ -51,9 +51,6 @@ docs = [
   "mike",
 ]
 
-tests = [
-  "unittest",
-]
 
 notebook = [
   "notebook>=7",           # This installs the Jupyter Notebook server

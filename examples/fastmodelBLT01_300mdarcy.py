@@ -1,4 +1,5 @@
 import os
+import pickle
 
 from fastmodelBLT01_core import Fastmodel_stoch_BLT01,  IPOWER, ICOP, INPV, ILCOH, ITEMPPRD, IFLOWRATE, ITIME
 from datetime import datetime
@@ -49,8 +50,20 @@ def main():
     model.fastmodel.plot_trajectories(outdir=outdir)
 
 
-    M = model.generate_ensemble(nsamples)
-    fwi = np.array(model.run_ensemble(M))
+
+    dorun = True
+    pkl_name = outdir + '/model_io.pkl'
+    if dorun:
+        M = model.generate_ensemble(nsamples)
+        fwi = model.run_ensemble(M)
+        with open(pkl_name, 'wb') as f:
+            pickle.dump({'model': model},f)
+    else:
+        with open(pkl_name, 'rb') as f:
+            data = pickle.load(f)
+        model = data['model']
+        M = model.stoch.M
+        fwi = model.stoch.fwi
 
     etime = datetime.now()
     print ('end at: ', etime.time())
