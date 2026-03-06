@@ -13,6 +13,7 @@ In adddition the tests plots the well trajectories and the pressure distribution
 for the Thiem solution, the DC1D solution and the AEM solution.
 
 """
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import pywellgeo.well_data.water_properties as watprop
@@ -125,8 +126,8 @@ class MyTestCase(unittest.TestCase):
 
         :return:
         """
-        dc1dsettings = './input/dc1dwell_skin0.yml'
-        settingfile = './input/npv_thermogis2024_138.yml'
+        dc1dsettings = Path(__file__).resolve().parent / "input"/ "dc1dwell_skin0.yml"
+        settingfile = Path(__file__).resolve().parent / "input"/"npv_thermogis2024_138.yml"
         dc1dwell = Dc1dwell.from_configfile(dc1dsettings)
         dc1dwell.qvol =   -125/3600
         dc1dwell.dp = 30
@@ -182,7 +183,8 @@ class MyTestCase(unittest.TestCase):
             skin_cinco = []
             skin_besson = []
             for deviation in deviations:
-                output_dir = 'output/benchmark_aem/skin_deviation/deviation' + str(deviation)
+                subdir  = 'deviation' + str(deviation)
+                output_dir = Path(__file__).resolve().parent / 'output' / 'benchmark_aem' / 'skin_deviation'/ subdir
                 trajectoryfile = os.path.join(output_dir, 'inputXYZ.yml')
                 if (i==0):
                     # create well trajectories with varying deviation
@@ -232,7 +234,7 @@ class MyTestCase(unittest.TestCase):
                     with open(trajectoryfile, 'w') as f:
                         yaml.dump(data, f, default_flow_style=False)
 
-                minimal_settings = './input/npv_thermogis2024.yml'
+                minimal_settings = Path(__file__).resolve().parent / 'input'/'npv_thermogis2024.yml'
                 economics = GeothermalEconomics.from_trajectory(minimal_settings, trajectoryfile=trajectoryfile)
                 npv, lcoe_val, cashflow, *_ = economics.compute_economics()
                 fastmodel = WellFastModel(economics,k=k, khkv=khkv, segmentlength=25)
