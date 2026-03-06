@@ -1,5 +1,6 @@
 import os
 import unittest
+from pathlib import Path
 
 import numpy as np
 
@@ -10,7 +11,7 @@ import pyfastwell.plot.plotwells as plotwells
 
 
 class MyTestCase(unittest.TestCase):
-    settingfile = './input/npv_thermogis2024.yml'
+    settingfile = Path(__file__).resolve().parent / 'input'/'npv_thermogis2024.yml'
 
     def test_DC1D(self):
         """
@@ -30,7 +31,7 @@ class MyTestCase(unittest.TestCase):
 
         """
 
-        dc1dsettings = './input/dc1dwell.yml'
+        dc1dsettings = Path(__file__).resolve().parent /'input'/'dc1dwell.yml'
         dc1dwell = Dc1dwell.from_configfile(dc1dsettings)
         dc1dwell.qvol = -1
         dc1dwell.dp = 30
@@ -75,7 +76,7 @@ class MyTestCase(unittest.TestCase):
         specified in the input file.
 
         """
-        dc1dsettings = './input/dc1dwell_fixedheatloss.yml'
+        dc1dsettings = Path(__file__).resolve().parent /'input'/'dc1dwell_fixedheatloss.yml'
         dc1dwell = Dc1dwell.from_configfile(dc1dsettings)
         dc1dwell.qvol = -1 # negative means use dp instead
         dc1dwell.dp = 30

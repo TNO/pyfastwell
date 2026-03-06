@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 
 from pywellgeo.well_data.dc1dwell import *
 
@@ -36,7 +37,7 @@ class MyTestCase(unittest.TestCase):
 
         :return:
         """
-        configfile = "./input/dc1dwell.yml"
+        configfile = Path(__file__).resolve().parent / "input"/ "dc1dwell.yml"
         dc1d = Dc1dwell.from_configfile(configfile)
         qvol = 125 / 3600
         dc1d.calculateDP(qvol)
