@@ -1,6 +1,7 @@
 import os
 
 import numpy as np
+import pandas as pd
 from matplotlib import pyplot as plt
 from typing import Any, Optional, Callable, List, Dict
 
@@ -177,7 +178,7 @@ class Stochasticmodel(object):
                 samples.append(sample)
             mr = np.array(samples)  # array of all values per parameter in prior
             m.append(mr)  # list of prior array
-
+        self.M = m
         return m
 
     def run_ensemble(self, m: List[np.ndarray], forward: Callable[[np.ndarray], Any]) -> List[np.ndarray]:
@@ -197,7 +198,8 @@ class Stochasticmodel(object):
         results = []
         for i in range(len(m)):
             results.append(forward(m[i]))
-        return results
+        self.fwi = np.array(results)
+        return self.fwi
 
 
 
@@ -273,6 +275,7 @@ class Stochasticmodel(object):
             if not os.path.exists(directory):
                 os.makedirs(directory)
             tofile = f'{filename_noext}_expt_{name}.png'
+            tofile_csv = f'{filename_noext}_expt_{name}.csv'
         else:
             tofile = None
 
@@ -308,6 +311,13 @@ class Stochasticmodel(object):
 
         if (tofile != None):
             plt.savefig(tofile)
+            df = pd.DataFrame({
+                 name: sorted_samples,
+                'cdf': cdf
+            })
+            df.to_csv(tofile_csv, index=False)
+
+
         else:
             plt.show()
         plt.close()
@@ -348,6 +358,7 @@ class Stochasticmodel(object):
             if not os.path.exists(directory):
                 os.makedirs(directory)
             tofile = f'{filename_noext}_cross_{name}_{inputname}.png'
+            tofile_csv = f'{filename_noext}_cross_{name}_{inputname}.csv'
         else:
             tofile = None
 
@@ -365,6 +376,11 @@ class Stochasticmodel(object):
 
         if (tofile != None):
             plt.savefig(tofile)
+            df = pd.DataFrame({
+                 inputname: inputval,
+                 name: results
+            })
+            df.to_csv(tofile_csv, index=False)
         else:
             plt.show()
         plt.close()
