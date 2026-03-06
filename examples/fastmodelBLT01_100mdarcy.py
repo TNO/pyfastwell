@@ -50,7 +50,7 @@ def main():
     model.fastmodel.plot_coldfront(outdir=outdir)
     model.fastmodel.plot_trajectories(outdir=outdir)
 
-    dorun = False
+    dorun = True
     pkl_name = outdir + '/model_io.pkl'
     if dorun:
         M = model.generate_ensemble(nsamples)
