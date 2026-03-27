@@ -1,7 +1,7 @@
 # Analytical Element Method (AEM) model benchmark
 
 
-The AEM implementation has been tested against doubletcalc1D, the analytical solution thiems
+The AEM implementation has been tested against DoubletCalc1D, the analytical solution by Thiems
 for a doublet with vertical wells in a homogeneous reservoir (Van Wees et al., 2012).
 
 In addition, the AEM implementation has been benchmarked against analytical  solutions of for deviated wells in homogeneous reservoirs by:
@@ -13,7 +13,7 @@ and against the NLOG spreadsheet based on Egberts and Fokker (2001) for horizont
 
 ## Thiem's solution for multiple wells in a homogeneous reservoir
 
-The steady state pressure conditions at distance r from the well radius is given by Thiem’s solution for an infinite aquifer:
+The steady-state pressure conditions at distance r from the well radius is given by Thiem’s solution for an infinite aquifer:
 
 $p(r) = \frac{\mu q}{2 \pi k H} ( \ln\left(\frac{r}{r_w}\right) + S)$  (eq. 1)
 
@@ -39,11 +39,11 @@ This figure can be reproduced with the corresponding unittest in *test_benchmark
 
 ## Deviated wells in homogeneous reservoirs
 
-In three dimensions we tested the a progressively inclined well, with deviations from vertical from 0 to 70 degrees.
+In three dimensions we tested the a progressively inclined well, with deviations from 0 (vertical) to 70 degrees.
 The center of the reservoir is at 2300 m depth, with a thickness of 100 m. the average distance between the perforated sections of the wells is maintained at 1300 m.
 For a well with 0 degrees deviation, the results are compared with Thiem's solution and DoubletCalc1D for a doublet with vertical wells in a homogeneous reservoir according to eq. 2.
 For increasing deviation from vertical, the AEM results are backbalculated to equivalent skin to a vertical which are required to obtain the same PI and II as the AEM results.
-they are compared to the analytical solutions from Cinco et al. (1975), Rogers and Economides (1996), and Besson (1990).
+They are compared to the analytical solutions from Cinco et al. (1975), Rogers and Economides (1996), and Besson (1990).
 
 
 ![Figure 2](../../images/skin_vs_deviation1.png)  
@@ -64,7 +64,7 @@ This figure can be reproduced with the corresponding unittest in test_benchmark_
 
 ## horizontal wells in homogeneous reservoirs
 
-For horizontal wells, relations are used that are based on the 3D-2D transition method that was developed by Egberts and Fokker (2001)., and available as spreadsheet tool at nlog. 
+For horizontal wells, relations are used that are based on the 3D-2D transition method that was developed by Egberts and Fokker (2001), and available as spreadsheet tool at nlog. 
 Possible permeability anisotropy is taken into account in this expression.We focus the comparison of the pressure on the injection well. The general input parameters our simulations are a viscosity of 0.817 mPa.s; an injection rate of 400 m3/hr; 
 a horizontal permeability of 100 md; a well radius of 0.1 m and an aquifer thickness of 100 m at a depth between 2300 and 2400 m. 
 In a first sensitivity exercise, we position two parallel horizontal wells at a distance of 1000 m. The length of the two wells is varied between 50 and 2000 m. 
