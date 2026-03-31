@@ -1,5 +1,5 @@
 site_name: pyfastwell
-repo_url: https://github.com/your-org/geothermal-npv-calc
+repo_url: https://github.com/TNO/pyfastwell
 theme:
   name: material
   logo: logo/logo_pyfastwell.png
