@@ -18,7 +18,6 @@ import argparse
 
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.cm as cm
 import pandas as pd
 
 # ── output-array index constants (mirror fastmodelBLT01_core.py) ────────────
@@ -48,7 +47,8 @@ def ensure_dir(path):
 
 def _make_colours(n_classes):
     """Return a list of RGBA colours for n_classes using the viridis colormap."""
-    cmap = cm.colormaps.get_cmap('viridis').resampled(n_classes)
+    # Use pyplot.get_cmap(name, lut) for broad Matplotlib version compatibility.
+    cmap = plt.get_cmap('viridis', n_classes)
     return [cmap(i / max(n_classes - 1, 1)) for i in range(n_classes)]
 
 
