@@ -98,6 +98,7 @@ def power_classes(power_values, edges=None):
     return indices, n_classes, colours, labels
 
 
+
 # ── expectation plot ─────────────────────────────────────────────────────────
 
 def expectation_plot(results, name, pvals=None, filename_noext=None):
